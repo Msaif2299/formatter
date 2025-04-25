@@ -61,8 +61,8 @@ function parseJSON(
   return result;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function parseNestedJSON(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any,
   structName: string,
   tag: string,

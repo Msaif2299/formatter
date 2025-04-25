@@ -1,5 +1,5 @@
 "use client";
-import React, { BaseSyntheticEvent, useState } from "react";
+import React, { useState } from "react";
 import ConverterOptions, {
   EnabledConverterOptions,
 } from "@/components/ConverterOptions";
