@@ -2,20 +2,198 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("/pagebackground.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@font-face {
+  font-family: 'Morris'; /* Name your font family */
+  src: url('/morris-roman.black.ttf'); /* Locate the .ttf file within your directory*/
+}
+
+.parchment {
+  background-image: url("/parchment.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Morris';
+}
+
+.parchment-input {
+  background:rgba(0,0,0,0.2);
+  box-shadow: inset 0 0 10px #000;
+}
+
+input.parchment-input::placeholder {
+  color:#000;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.sidebar-with-bg [data-sidebar="sidebar"] {
+  background-color: transparent !important;
+  /* background-image: url('/ancient-exploration-map-stockcake.jpg') !important;
+  background-repeat: no-repeat; */
+  background-size: contain !important;
+  background-position: center !important;
+  min-height: 100vh;
+  /* Temporary border to see if the class is being applied */
+  font-family: 'Morris';
+}
+
+.sidebar-with-bg [data-sidebar="menu-button"] {
+  font-size: 16px !important;
+  color: #3a3a3a;
+  /* border-radius: 0%; */
+  background-image: url('/old-paper-texture-background-ythvn65ull51lxbr.png') !important;
+  background-position: center center !important;
+}
+
+.sidebar-with-bg [data-sidebar="group-label"] {
+  font-size: 26px !important;
+  color: #000000;
+  background-image: url('/old-wood-texture-plaque-plate-44978578.jpg') !important;
+  border: #4e2f02 2px solid;
+}
+
+.sidebar-with-bg [data-sidebar="content"]::-webkit-scrollbar {
+  background-color: transparent !important;
+  /* background-image: url('/pagebackground.png') !important; */
+  background-position: center !important;
+}
+
+.sidebar-with-bg [data-sidebar="content"]::-webkit-scrollbar-thumb {
+  background: transparent;
+  background-image: url('/old-wood-texture-plaque-plate-44978578.jpg') !important;
+  border-radius: 15px;
+  border: #4e2f02 2px solid;
+}
+
+textarea {
+  background-image: url('/pngtree-vintage-paper-background-with-old-border-picture-image_1365789.jpg');
+  background-position: center center !important;
+  background-size:cover;
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+  box-sizing: border-box;
+  font-weight: bold !important;
+  font-size: 16px !important;
+}
+
+.conv-button {
+  background-image: url('/abstract-wood-texture-very-smooth-260nw-2476508281.jpg') !important;
+  font-family: 'Morris';
+}
+
+.error-message {
+  background-image: url('/pngtree-vintage-paper-background-with-old-map-and-compas-image_629186.jpg') !important;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #000;
+  font-weight: bold;
+  font-family: 'Morris';
+  font-size: 24px !important;
 }
