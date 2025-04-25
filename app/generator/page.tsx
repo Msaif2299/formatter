@@ -2,7 +2,7 @@
 import ConverterOptions, {
   EnabledConverterOptions,
 } from "@/components/ConverterOptions";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { FunctionParameters } from "@/lib/common";
 import { generateRandomString } from "@/lib/randomstring";
 import { useSearchParams } from "next/navigation";
@@ -32,6 +32,14 @@ const functions = new Map<string, Generator>([
 ]);
 
 export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <GeneratorContent />
+    </Suspense>
+  );
+}
+
+function GeneratorContent() {
   const [params, setParams] = useState<FunctionParameters>({
     length: 0,
   });
