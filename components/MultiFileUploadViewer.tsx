@@ -41,11 +41,11 @@ export default function MultiFileUploaderViewer({
                 setDraggingItem(item);
                 e.dataTransfer.setData("text/plain", "");
               }}
-              onDragEnd={(e) => {
+              onDragEnd={() => {
                 setDraggingItem(undefined);
               }}
               onDragOver={(e) => e.preventDefault()}
-              onDrop={(e) => {
+              onDrop={() => {
                 if (!draggingItem) {
                   return;
                 }
@@ -61,9 +61,9 @@ export default function MultiFileUploaderViewer({
               <div>{idx + 1}</div>
               <X
                 color="#f70202"
-                onClick={(e) => {
+                onClick={() => {
                   const currentIndex = files.indexOf(item);
-                  let newFiles = [...files];
+                  const newFiles = [...files];
                   console.log(currentIndex);
                   if (currentIndex != -1) {
                     newFiles.splice(currentIndex, 1);

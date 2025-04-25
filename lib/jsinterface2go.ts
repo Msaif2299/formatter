@@ -13,19 +13,19 @@ export const fromJSInterfaceToGoStruct = (
   }
   validateJSInterface(data);
   data = data.replace(/\s+/gm, " ").trim();
-  let structName = data.split(" ")[1];
+  const structName = data.split(" ")[1];
   let result = `type struct ${structName} {\n`;
 
   data = data.substring(data.indexOf("{") + 1, data.indexOf("}")).trim();
-  let fields = data.split(";");
+  const fields = data.split(";");
   for (let i = 0; i < fields.length; i++) {
     fields[i] = fields[i].trim();
     if (fields[i].length == 0) {
       continue;
     }
-    let [name, type] = fields[i].split(":").map((value) => value.trim());
-    let containsOptional = name.indexOf("?") > -1;
-    name = name.replace("?", "");
+    const [ogName, type] = fields[i].split(":").map((value) => value.trim());
+    const containsOptional = ogName.indexOf("?") > -1;
+    const name = ogName.replace("?", "");
     result +=
       `\t${name}\t${MapJSTypeToGolangType(type)}\t` +
       "`" +

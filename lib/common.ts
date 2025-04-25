@@ -44,7 +44,7 @@ export function MapJSTypeToGolangType(type: string): string {
 }
 
 export function ConvertGoTypeToSQLType(type: string): string {
-  let formatOptions: string[] = [];
+  const formatOptions: string[] = [];
   if (type.indexOf("[]") > -1) {
     return "VARCHAR(255)";
   }

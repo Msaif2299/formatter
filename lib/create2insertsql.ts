@@ -195,8 +195,8 @@ function createRandomValues(
   count: number
 ): Map<string, string[]> {
   const randoms = new Map<string, string[]>();
-  for (let [key, value] of columns.entries()) {
-    value = value.toLowerCase();
+  for (const [key, originalValue] of columns.entries()) {
+    const value = originalValue.toLowerCase();
     let randomValues: string[] = [];
     if (value.indexOf("tinyint") > -1) {
       if (value.indexOf("unsigned") > -1) {
@@ -259,15 +259,15 @@ function generateInsertStatement(
   count: number
 ): string {
   let sql = "INSERT INTO `" + tableName + "` (";
-  let columnNames: string[] = [];
-  for (const [columnName, _] of randoms.entries()) {
+  const columnNames: string[] = [];
+  for (const [columnName, _entries] of randoms.entries()) {
     columnNames.push("`" + columnName + "`");
   }
-  const values: string[][] = [...Array(count)].map((x) =>
+  const values: string[][] = [...Array(count)].map(() =>
     Array(columnNames.length)
   );
   let col = 0;
-  for (const [_, entries] of randoms.entries()) {
+  for (const [_columnName, entries] of randoms.entries()) {
     for (let row = 0; row < count; row++) {
       values[row][col] = entries[row];
     }
@@ -344,7 +344,7 @@ function fetchVarcharCount(value: string): number {
   if (value.indexOf("(") == -1) {
     return 5;
   }
-  let digitsAndPrecStr = value.substring(
+  const digitsAndPrecStr = value.substring(
     value.indexOf("(") + 1,
     value.indexOf(")")
   );

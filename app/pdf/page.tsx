@@ -1,10 +1,5 @@
 "use client";
-import React, {
-  BaseSyntheticEvent,
-  Dispatch,
-  SetStateAction,
-  useState,
-} from "react";
+import React, { BaseSyntheticEvent, useState } from "react";
 import ConverterOptions, {
   EnabledConverterOptions,
 } from "@/components/ConverterOptions";
@@ -143,7 +138,7 @@ const Process = ({
   setProgress: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const onClick = async (e: BaseSyntheticEvent) => {
+  const onClick = async () => {
     try {
       setIsLoading(true);
       const result = await processor(files, params, setProgress);

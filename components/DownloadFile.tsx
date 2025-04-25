@@ -31,7 +31,7 @@ export default function DownloadFilePanel({
 
       <Button
         className="grow-0 max-w-24"
-        onClick={(e) => {
+        onClick={() => {
           if (!file) {
             return;
           }

@@ -1,18 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ConverterOptions, {
   EnabledConverterOptions,
 } from "@/components/ConverterOptions";
 import { EnhancedTextarea } from "@/components/ui/enhanced-text-area";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { useSearchParams } from "next/navigation";
-import { fromCreateSQLToInsertSQL } from "@/lib/create2insertsql";
 import { FunctionParameters } from "@/lib/common";
-import { fromGoDBStructToCreateSQLStmt } from "@/lib/godb2createstmt";
-import { fromJSInterfaceToGoStruct } from "@/lib/jsinterface2go";
 import ErrorMessage from "@/components/ErrorMessage";
-import { fromGoJSONToGoStruct } from "@/lib/json2gostruct";
 import { fromHex, toHex } from "@/lib/hex-coder";
 import { fromBin, toBin } from "@/lib/bin-coder";
 import { fromEscape, toEscape } from "@/lib/escape-coder";

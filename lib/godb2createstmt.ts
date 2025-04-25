@@ -18,7 +18,7 @@ export const fromGoDBStructToCreateSQLStmt = (
   }
   validateGoStruct(data);
   const tag = "db";
-  let columnTokens: ParsedColumnToken[] = [];
+  const columnTokens: ParsedColumnToken[] = [];
   const parseErrors: string[] = [];
   data
     .substring(data.indexOf("{") + 1, data.lastIndexOf("}"))

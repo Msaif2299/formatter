@@ -10,14 +10,17 @@ type EnhancedTextAreaProps = React.ComponentProps<"textarea"> & {
   setValue?: (value: string) => void;
 };
 
-
 const EnhancedTextarea = React.forwardRef<
   HTMLTextAreaElement,
   EnhancedTextAreaProps
->(({ className, onChangeHandler, value, setValue, ...props }, ref) => {
-  if (value === undefined || setValue === undefined) {
-    [value, setValue] = React.useState("");
-  }
+>(({ onChangeHandler, value, setValue, ...props }, ref) => {
+  // Always call useState unconditionally
+  const [internalValue, setInternalValue] = React.useState("");
+
+  // Determine which value and setter to use
+  value = value !== undefined ? value : internalValue;
+  setValue = setValue !== undefined ? setValue : setInternalValue;
+
   const textAreaRef = React.useRef<HTMLTextAreaElement | null>(null);
   React.useImperativeHandle(
     ref,
@@ -98,5 +101,5 @@ const EnhancedTextarea = React.forwardRef<
     />
   );
 });
-
+EnhancedTextarea.displayName = "EnhancedTextArea";
 export { EnhancedTextarea };

@@ -3,8 +3,8 @@ import { FunctionParameters } from "./common";
 
 export default async function Img2pdf(
   files: File[],
-  params: FunctionParameters,
-  setProgress: React.Dispatch<React.SetStateAction<number>>
+  _params: FunctionParameters,
+  _setProgress: React.Dispatch<React.SetStateAction<number>>
 ): Promise<Blob> {
   if (files.length == 0) {
     throw Error("No files found");
