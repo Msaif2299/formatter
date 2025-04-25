@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import ConverterOptions, {
   EnabledConverterOptions,
 } from "@/components/ConverterOptions";
@@ -53,6 +53,14 @@ const functions = new Map<string, Converter>([
 ]);
 
 export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PDFContent />
+    </Suspense>
+  );
+}
+
+function PDFContent() {
   const [files, setFiles] = useState<File[]>([]);
   const [outputFile, setOutputFile] = useState<Blob>();
   const [error, setError] = useState("");

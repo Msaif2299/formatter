@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import ConverterOptions, {
   EnabledConverterOptions,
 } from "@/components/ConverterOptions";
@@ -61,6 +61,14 @@ const functions = new Map<string, Converter>([
 ]);
 
 export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CoderContent />
+    </Suspense>
+  );
+}
+
+function CoderContent() {
   const [fromText, setFromText] = useState("");
   const [toText, setToText] = useState("");
   const [error, setError] = useState("");
