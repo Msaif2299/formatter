@@ -13,7 +13,7 @@ runs:
       uses: actions/cache@v3
       with:
         path: node_modules
-        key: node-modules-${{ hash_files('package-lock.json') }}
+        key: node-modules-${{ hashFiles('package-lock.json') }}
 
     - name: Install dependencies
       shell: bash
