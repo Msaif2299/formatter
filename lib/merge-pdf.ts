@@ -44,6 +44,23 @@ export default async function merge(
         });
         y -= lineHeight;
       });
+    } else if (
+      file.type == "image/png" ||
+      file.type == "image/jpg" ||
+      file.type == "image/jpeg"
+    ) {
+      const arrayBuffer = await file.arrayBuffer();
+      const img =
+        file.type == "image/png"
+          ? await mergedPDF.embedPng(arrayBuffer)
+          : await mergedPDF.embedJpg(arrayBuffer);
+      const page = mergedPDF.addPage();
+      page.drawImage(img, {
+        x: page.getWidth() / 2 - img.width / 2,
+        y: page.getHeight() / 2 - img.height / 2,
+        width: img.width,
+        height: img.height,
+      });
     } else if (file.type == "application/pdf") {
       const arrayBuffer = await file.arrayBuffer();
       const pdf = await PDFDocument.load(arrayBuffer);

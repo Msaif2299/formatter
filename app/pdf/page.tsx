@@ -33,7 +33,7 @@ const functions = new Map<string, Converter>([
     {
       title: "Merges multiple uploaded PDFs into a Singular PDF file",
       description:
-        "Upload multiple PDF files and download a merged PDF file with all pages in the order of the files.",
+        "Upload multiple txt or image(png/jpg/jpeg) or PDF files and download a merged PDF file with all pages in the order of the files.",
       func: merge,
       extension: "pdf",
       placeholderFilename: "merged",

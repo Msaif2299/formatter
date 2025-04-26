@@ -90,7 +90,7 @@ const items = [
     title: "PDF Converter",
     functions: [
       {
-        title: "Merge PDFs",
+        title: "Add to PDF",
         url: "/pdf?cfn=merge",
       },
       {
@@ -100,10 +100,6 @@ const items = [
       {
         title: "Convert Images to PDF",
         url: "/pdf?cfn=toPDF",
-      },
-      {
-        title: "Add Images to PDF",
-        url: "#",
       },
       {
         title: "Remove pages from PDF",
