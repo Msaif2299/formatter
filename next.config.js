@@ -2,6 +2,7 @@
 const nextConfig = {
   output: "export",
   basePath: "/formatter",
+  assetPrefix: "/formatter/",
   reactStrictMode: true,
   images: {
     unoptimized: true,
