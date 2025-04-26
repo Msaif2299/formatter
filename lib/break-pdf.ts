@@ -3,7 +3,7 @@ import { FunctionParameters } from "./common";
 import JSZip from "jszip";
 
 // Assuming pdf.worker.js is at public/pdf.worker.js
-GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
+GlobalWorkerOptions.workerSrc = "/formatter/pdf.worker.min.mjs";
 
 async function PDFToImages(file: File): Promise<string[]> {
   return new Promise((resolve, reject) => {
@@ -46,7 +46,7 @@ async function PDFToImages(file: File): Promise<string[]> {
 
 export default async function PDFsToImages(
   files: File[],
-  params: FunctionParameters,
+  _params: FunctionParameters,
   setProgress: React.Dispatch<React.SetStateAction<number>>
 ): Promise<Blob> {
   const imageURLs: string[] = [];
