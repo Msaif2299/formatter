@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  background-image: url("/formatter/pagebackground.png");
+  background-image: url("/pagebackground.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -16,11 +16,11 @@ body {
 
 @font-face {
   font-family: 'Morris'; /* Name your font family */
-  src: url('/formatter/morris-roman.black.ttf'); /* Locate the .ttf file within your directory*/
+  src: url('/morris-roman.black.ttf'); /* Locate the .ttf file within your directory*/
 }
 
 .parchment {
-  background-image: url("/formatter/parchment.png");
+  background-image: url("/parchment.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -147,14 +147,14 @@ input.parchment-input::placeholder {
   font-size: 16px !important;
   color: #3a3a3a;
   /* border-radius: 0%; */
-  background-image: url('/formatter/old-paper-texture-background-ythvn65ull51lxbr.png') !important;
+  background-image: url('/old-paper-texture-background-ythvn65ull51lxbr.png') !important;
   background-position: center center !important;
 }
 
 .sidebar-with-bg [data-sidebar="group-label"] {
   font-size: 26px !important;
   color: #000000;
-  background-image: url('/formatter/old-wood-texture-plaque-plate-44978578.jpg') !important;
+  background-image: url('/old-wood-texture-plaque-plate-44978578.jpg') !important;
   border: #4e2f02 2px solid;
 }
 
@@ -166,13 +166,13 @@ input.parchment-input::placeholder {
 
 .sidebar-with-bg [data-sidebar="content"]::-webkit-scrollbar-thumb {
   background: transparent;
-  background-image: url('/formatter/old-wood-texture-plaque-plate-44978578.jpg') !important;
+  background-image: url('/old-wood-texture-plaque-plate-44978578.jpg') !important;
   border-radius: 15px;
   border: #4e2f02 2px solid;
 }
 
 textarea {
-  background-image: url('/formatter/pngtree-vintage-paper-background-with-old-border-picture-image_1365789.jpg');
+  background-image: url('/pngtree-vintage-paper-background-with-old-border-picture-image_1365789.jpg');
   background-position: center center !important;
   background-size:cover;
   padding-left: 50px !important;
@@ -183,12 +183,12 @@ textarea {
 }
 
 .conv-button {
-  background-image: url('/formatter/abstract-wood-texture-very-smooth-260nw-2476508281.jpg') !important;
+  background-image: url('/abstract-wood-texture-very-smooth-260nw-2476508281.jpg') !important;
   font-family: 'Morris';
 }
 
 .error-message {
-  background-image: url('/formatter/pngtree-vintage-paper-background-with-old-map-and-compas-image_629186.jpg') !important;
+  background-image: url('/pngtree-vintage-paper-background-with-old-map-and-compas-image_629186.jpg') !important;
   background-size: cover !important;
   background-repeat: no-repeat;
   background-position: center;
