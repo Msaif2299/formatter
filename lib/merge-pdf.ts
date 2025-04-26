@@ -23,10 +23,37 @@ export default async function merge(
   const mergedPDF = await PDFDocument.create();
   updateProgress();
   for (const file of files) {
-    const arrayBuffer = await file.arrayBuffer();
-    const pdf = await PDFDocument.load(arrayBuffer);
-    const copiedPages = await mergedPDF.copyPages(pdf, pdf.getPageIndices());
-    copiedPages.forEach((page) => mergedPDF.addPage(page));
+    if (file.type == "text/plain") {
+      const txtFileData = await file.text();
+      const txtLines = txtFileData.split("\n");
+      let newPage = mergedPDF.addPage();
+      const { width, height } = newPage.getSize();
+      const fontSize = 12;
+      const lineHeight = fontSize * 1.2;
+      const margin = 50;
+      let y = height - margin;
+      txtLines.forEach((value: string) => {
+        if (y < margin + lineHeight) {
+          newPage = mergedPDF.addPage();
+          y = height - margin;
+        }
+        newPage.drawText(value, {
+          x: margin,
+          y: y,
+          size: fontSize,
+        });
+        y -= lineHeight;
+      });
+    } else if (file.type == "application/pdf") {
+      const arrayBuffer = await file.arrayBuffer();
+      const pdf = await PDFDocument.load(arrayBuffer);
+      const copiedPages = await mergedPDF.copyPages(pdf, pdf.getPageIndices());
+      copiedPages.forEach((page) => mergedPDF.addPage(page));
+    } else {
+      throw Error(
+        "Unknown extension encountered: " + file.type + " in " + file.name
+      );
+    }
     updateProgress();
   }
   const mergedPDFFile = await mergedPDF.save();
