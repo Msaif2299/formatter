@@ -27,7 +27,7 @@ export default async function merge(
       const txtFileData = await file.text();
       const txtLines = txtFileData.split("\n");
       let newPage = mergedPDF.addPage();
-      const { width, height } = newPage.getSize();
+      const { height } = newPage.getSize();
       const fontSize = 12;
       const lineHeight = fontSize * 1.2;
       const margin = 50;
