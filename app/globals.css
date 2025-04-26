@@ -147,7 +147,7 @@ input.parchment-input::placeholder {
   font-size: 16px !important;
   color: #3a3a3a;
   /* border-radius: 0%; */
-  background-image: url('/old-paper-texture-background-ythvn65ull51lxbr.png') !important;
+  background-image: url('../old-paper-texture-background-ythvn65ull51lxbr.png') !important;
   background-position: center center !important;
 }
 
