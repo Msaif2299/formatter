@@ -15,6 +15,7 @@ import {
   CollapsibleContent,
 } from "@radix-ui/react-collapsible";
 import { ChevronDown } from "lucide-react";
+import Link from "next/link";
 
 const items = [
   {
@@ -144,9 +145,9 @@ export function AppSidebar() {
                     {item.functions?.map((func) => (
                       <SidebarMenuItem key={func.title}>
                         <SidebarMenuButton asChild>
-                          <a href={func.url}>
+                          <Link href={func.url}>
                             <span>{func.title}</span>
-                          </a>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                     ))}
